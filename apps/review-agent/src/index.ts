@@ -293,7 +293,7 @@ app.post("/webhook", async (c) => {
 
         if (!settings.effectiveEnabled) {
           console.log(
-            `Reviews disabled for ${owner}/${repo} (enabled: ${settings.enabled}, effectiveEnabled: ${settings.effectiveEnabled})`
+            `Reviews disabled for ${owner}/${repo} (enabled: ${settings.enabled}, effectiveEnabled: ${settings.effectiveEnabled}, reason: ${settings.disabledReason ?? "unknown"})`
           );
           return c.json({ status: "skipped", reason: "disabled" });
         }
